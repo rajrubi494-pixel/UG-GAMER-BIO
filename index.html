@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>UNIQUE GAMER</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #222 0%, #080808 45%, #000 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(
+          120deg,
+          transparent 0%,
+          rgba(255,255,255,0.04) 50%,
+          transparent 100%
+        );
+      animation: shine 6s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .container {
+      width: 92%;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 0 50px;
+      text-align: center;
+    }
+
+    /* Header */
+    .logo {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      margin-top: 20px;
+      text-shadow: 0 0 20px rgba(255,255,255,0.4);
+    }
+
+    .tagline {
+      margin-top: 8px;
+      color: #aaa;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    /* Profile card */
+    .profile {
+      margin: 35px auto 25px;
+      padding: 30px 20px;
+      max-width: 650px;
+
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 22px;
+
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      margin: auto;
+
+      border-radius: 50%;
+      background: #111;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 42px;
+      font-weight: bold;
+
+      border: 2px solid #fff;
+      box-shadow: 0 0 30px rgba(255,255,255,0.25);
+    }
+
+    .profile h2 {
+      margin-top: 18px;
+      font-size: 27px;
+    }
+
+    .profile p {
+      margin-top: 10px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+
+      background: white;
+      color: black;
+
+      text-decoration: none;
+      font-weight: bold;
+
+      border-radius: 30px;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+    }
+
+    .btn.dark {
+      background: #151515;
+      color: white;
+      border: 1px solid #333;
+    }
+
+    /* Information cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .card {
+      padding: 22px 15px;
+
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+
+      border-radius: 18px;
+    }
+
+    .card .icon {
+      font-size: 28px;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      font-size: 17px;
+    }
+
+    .card p {
+      margin-top: 6px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* Music player */
+    .music-box {
+      margin: 28px auto 0;
+      max-width: 650px;
+
+      padding: 20px;
+
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+
+      border-radius: 20px;
+    }
+
+    .music-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    .music-btn {
+      margin-top: 15px;
+
+      border: none;
+      border-radius: 30px;
+
+      padding: 13px 25px;
+
+      background: white;
+      color: black;
+
+      font-size: 15px;
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 45px;
+      padding-top: 20px;
+
+      border-top: 1px solid #222;
+
+      color: #666;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+
+      .logo {
+        font-size: 30px;
+        letter-spacing: 3px;
+      }
+
+      .tagline {
+        font-size: 12px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile {
+        padding: 25px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="logo">
+      UNIQUE GAMER
+    </div>
+
+    <div class="tagline">
+      GAMING • ENTERTAINMENT • COMMUNITY
+    </div>
+
+
+    <!-- PROFILE -->
+    <section class="profile">
+
+      <div class="avatar">
+        UG
+      </div>
+
+      <h2>UNIQUE GAMER</h2>
+
+      <p>
+        Welcome to my gaming world 🎮<br>
+        Gaming videos, entertainment and epic moments.
+      </p>
+
+      <div class="buttons">
+
+        <!-- CHANGE THIS TO YOUR YOUTUBE LINK -->
+        <a
+          class="btn"
+          href="https://youtube.com/"
+          target="_blank"
+        >
+          ▶ YouTube Channel
+        </a>
+
+        <a
+          class="btn dark"
+          href="#about"
+        >
+          About Me
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- INFO -->
+    <section class="grid">
+
+      <div class="card">
+        <div class="icon">🎮</div>
+        <h3>Category</h3>
+        <p>Gaming</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📅</div>
+        <h3>Gaming Journey</h3>
+        <p>Since 2026</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔥</div>
+        <h3>Content</h3>
+        <p>Gaming & Entertainment</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👾</div>
+        <h3>Community</h3>
+        <p>Gamers Together</p>
+      </div>
+
+    </section>
+
+
+    <!-- MUSIC -->
+    <section class="music-box">
+
+      <div class="music-title">
+        🎵 Background Music
+      </div>
+
+      <audio id="bgMusic" loop preload="auto" controls playsinline>
+        <source
+          src="assets/bg-music.mp3"
+          type="audio/mpeg"
+        >
+        Your browser does not support audio.
+      </audio>
+
+      <button
+        class="music-btn"
+        id="musicBtn"
+        onclick="toggleMusic()"
+      >
+        ▶ Play Music
+      </button>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section
+      class="profile"
+      id="about"
+      style="margin-top:25px;"
+    >
+
+      <h2>About UNIQUE GAMER</h2>
+
+      <p>
+        This is the official gaming space of UNIQUE GAMER.
+        Stay connected for gaming content, new videos and
+        exciting moments.
+      </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+      © 2026 UNIQUE GAMER<br>
+      Gaming • Entertainment • Community
+    </footer>
+
+  </div>
+
+
+  <script>
+
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
+
+    function playMusic() {
+
+      music.play()
+        .then(() => {
+
+          musicBtn.innerHTML = "⏸ Pause Music";
+
+        })
+        .catch((error) => {
+
+          console.log("Music could not start:", error);
+
+        });
+
+    }
+
+
+    function toggleMusic() {
+
+      if (music.paused) {
+
+        playMusic();
+
+      } else {
+
+        music.pause();
+
+        musicBtn.innerHTML = "▶ Play Music";
+
+      }
+
+    }
+
+
+    /*
+      Try autoplay when the page loads.
+      Mobile browsers may block autoplay with sound.
+    */
+
+    window.addEventListener("load", () => {
+
+      music.play()
+        .then(() => {
+
+          musicBtn.innerHTML = "⏸ Pause Music";
+
+        })
+        .catch(() => {
+
+          musicBtn.innerHTML = "▶ Play Music";
+
+        });
+
+    });
+
+
+    /*
+      If autoplay is blocked,
+      the first tap/click on the page starts the music.
+    */
+
+    function startAfterInteraction() {
+
+      music.play()
+        .then(() => {
+
+          musicBtn.innerHTML = "⏸ Pause Music";
+
+        })
+        .catch(() => {});
+
+      document.removeEventListener(
+        "touchstart",
+        startAfterInteraction
+      );
+
+      document.removeEventListener(
+        "click",
+        startAfterInteraction
+      );
+
+    }
+
+
+    document.addEventListener(
+      "touchstart",
+      startAfterInteraction,
+      { once: true }
+    );
+
+    document.addEventListener(
+      "click",
+      startAfterInteraction,
+      { once: true }
+    );
+
+  </script>
+
+</body>
+        </html>
