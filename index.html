@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNIQUE GAMER | Aryan</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#050505;color:#fff;min-height:100vh;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;
+  background:repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 4px);
+}
+.wrap{max-width:1050px;margin:auto;padding:24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 35px}
+.logo{font-size:24px;font-weight:900;letter-spacing:3px}
+.ug{border:2px solid #fff;padding:6px 9px;margin-right:8px}
+.hero{
+  min-height:68vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;position:relative;
+}
+.hero h1{font-size:clamp(52px,11vw,120px);line-height:.9;letter-spacing:-5px;font-weight:1000}
+.hero h1 span{display:block;font-size:.22em;letter-spacing:8px;margin-top:24px}
+.hero p{margin:28px auto;max-width:560px;color:#aaa;font-size:17px;line-height:1.7}
+.btn{
+  display:inline-block;text-decoration:none;color:#000;background:#fff;
+  padding:14px 25px;font-weight:800;border-radius:3px;margin:5px;
+  transition:.2s
+}
+.btn:hover{transform:translateY(-3px);background:#ddd}
+section{padding:70px 0;border-top:1px solid #222}
+.title{font-size:32px;margin-bottom:28px;text-transform:uppercase;letter-spacing:2px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{
+  border:1px solid #292929;background:#0b0b0b;padding:24px;min-height:110px;
+}
+.label{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:2px}
+.value{font-size:22px;font-weight:800;margin-top:10px}
+.music{
+  position:fixed;right:18px;bottom:18px;z-index:10;
+  background:#fff;color:#000;border:0;padding:12px 16px;
+  font-weight:800;border-radius:50px;cursor:pointer;box-shadow:0 8px 30px #000;
+}
+footer{text-align:center;color:#666;padding:40px 0}
+@media(max-width:600px){.wrap{padding:18px}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-3px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<nav>
+  <div class="logo"><span class="ug">UG</span> UNIQUE</div>
+  <div style="color:#777;font-size:12px;letter-spacing:2px">GAMING</div>
+</nav>
+
+<main class="hero">
+  <div>
+    <h1>UNIQUE<span>GAMER</span></h1>
+    <p>
+      Welcome to my gaming world. Gameplay, challenges and unique gaming
+      content — built from India.
+    </p>
+    <a class="btn" href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" rel="noopener">▶ YouTube</a>
+  </div>
+</main>
+
+<section>
+  <h2 class="title">About</h2>
+  <div class="grid">
+    <div class="card"><div class="label">Creator</div><div class="value">Aryan</div></div>
+    <div class="card"><div class="label">From</div><div class="value">🇮🇳 India</div></div>
+    <div class="card"><div class="label">Category</div><div class="value">Gaming 🎮</div></div>
+    <div class="card"><div class="label">Journey Started</div><div class="value">YOUR START DATE</div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="title">The Journey</h2>
+  <p style="color:#aaa;line-height:1.8;max-width:700px">
+    One channel. One gamer. One journey. Follow UNIQUE GAMER as the channel
+    grows from its first upload toward bigger games, bigger challenges and a bigger community.
+  </p>
+</section>
+
+<footer>© 2026 UNIQUE GAMER • Aryan</footer>
+</div>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="assets/bg-music.mp3" type="audio/mpeg">
+</audio>
+<button class="music" id="musicBtn">♫ Music</button>
+
+<script>
+const audio = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+btn.addEventListener("click", async () => {
+  if (audio.paused) {
+    try { await audio.play(); btn.textContent = "❚❚ Music"; }
+    catch(e) { alert("Tap again to start the music."); }
+  } else {
+    audio.pause(); btn.textContent = "♫ Music";
+  }
+});
+</script>
+</body>
+</html>
