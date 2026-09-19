@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UNIQUE GAMER | UG</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    font-family:'Rajdhani',sans-serif;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND GRID */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:45px 45px;
+    mask-image:linear-gradient(to bottom,#000,transparent);
+}
+
+/* NAVIGATION */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:72px;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:rgba(5,5,5,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.nav-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.mini-ug{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:'Orbitron',sans-serif;
+    font-size:14px;
+    font-weight:900;
+
+    border:1px solid #fff;
+    transform:skew(-8deg);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,.15),
+        inset 0 0 15px rgba(255,255,255,.05);
+}
+
+.nav-name{
+    font-family:'Orbitron',sans-serif;
+    font-size:14px;
+    letter-spacing:3px;
+}
+
+nav a{
+    color:#888;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:110px 20px 60px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+/* MAIN UG LOGO */
+.ug-logo{
+    width:190px;
+    height:190px;
+    margin:0 auto 35px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#050505;
+    border:2px solid #fff;
+
+    clip-path:polygon(
+        12% 0,
+        88% 0,
+        100% 12%,
+        100% 88%,
+        88% 100%,
+        12% 100%,
+        0 88%,
+        0 12%
+    );
+
+    box-shadow:
+        0 0 0 8px #050505,
+        0 0 0 9px rgba(255,255,255,.3),
+        0 0 45px rgba(255,255,255,.18);
+}
+
+.ug-logo::before{
+    content:"";
+    position:absolute;
+    inset:16px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    clip-path:inherit;
+}
+
+.ug-logo::after{
+    content:"";
+    position:absolute;
+    width:55px;
+    height:1px;
+    background:#fff;
+    bottom:29px;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:.7;
+}
+
+.ug-text{
+    font-family:'Orbitron',sans-serif;
+    font-size:65px;
+    font-weight:900;
+    letter-spacing:-7px;
+    transform:skew(-8deg);
+    z-index:2;
+}
+
+.ug-text span{
+    display:inline-block;
+}
+
+.tag{
+    font-family:'Orbitron',sans-serif;
+    color:#777;
+    font-size:12px;
+    letter-spacing:6px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(34px,8vw,78px);
+    font-weight:900;
+    letter-spacing:5px;
+    line-height:1;
+}
+
+.hero h1 span{
+    color:#777;
+}
+
+.hero p{
+    margin:25px auto;
+    max-width:600px;
+    color:#999;
+    font-size:18px;
+    letter-spacing:1px;
+    line-height:1.5;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-top:15px;
+    padding:14px 24px;
+
+    border:1px solid #fff;
+    color:#fff;
+    text-decoration:none;
+
+    font-family:'Orbitron',sans-serif;
+    font-size:12px;
+    letter-spacing:1px;
+
+    background:#050505;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#fff;
+    color:#000;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.25);
+}
+
+/* SECTIONS */
+section{
+    padding:90px 7%;
+}
+
+.section-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:28px;
+    letter-spacing:3px;
+    margin-bottom:35px;
+}
+
+.section-title::before{
+    content:"// ";
+    color:#555;
+}
+
+/* PROFILE */
+.profile-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.card{
+    position:relative;
+
+    padding:28px;
+
+    border:1px solid #222;
+
+    background:
+        linear-gradient(145deg,#0c0c0c,#060606);
+
+    overflow:hidden;
+    transition:.35s;
+}
+
+.card:hover{
+    border-color:#777;
+    transform:translateY(-4px);
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+
+    width:70px;
+    height:1px;
+
+    background:#fff;
+
+    right:0;
+    top:0;
+}
+
+.label{
+    color:#666;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+}
+
+.value{
+    font-family:'Orbitron',sans-serif;
+    font-size:20px;
+    margin-top:10px;
+}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    text-align:center;
+
+    padding:28px 10px;
+
+    border:1px solid #222;
+
+    background:#080808;
+
+    transition:.3s;
+}
+
+.stat:hover{
+    border-color:#666;
+}
+
+.stat-number{
+    font-family:'Orbitron',sans-serif;
+    font-size:30px;
+    font-weight:800;
+}
+
+.stat-name{
+    margin-top:8px;
+    color:#666;
+    letter-spacing:2px;
+    font-size:11px;
+}
+
+/* GAMING ZONE */
+.game-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.game-card{
+    min-height:170px;
+
+    border:1px solid #222;
+
+    padding:25px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    position:relative;
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.game-card:hover{
+    border-color:#777;
+    transform:translateY(-4px);
+}
+
+.game-card .symbol{
+    position:absolute;
+    top:20px;
+    right:22px;
+
+    font-family:'Orbitron',sans-serif;
+    font-size:28px;
+
+    color:#444;
+}
+
+.game-card h3{
+    font-family:'Orbitron',sans-serif;
+    letter-spacing:2px;
+}
+
+.game-card p{
+    color:#777;
+    margin-top:7px;
+}
+
+/* YOUTUBE */
+.youtube{
+    text-align:center;
+
+    border:1px solid #222;
+
+    padding:55px 20px;
+
+    background:
+        linear-gradient(135deg,#0d0d0d,#050505);
+}
+
+.youtube-icon{
+    width:70px;
+    height:48px;
+
+    margin:0 auto 25px;
+
+    border:2px solid #fff;
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:20px;
+
+    transition:.3s;
+}
+
+.youtube-icon:hover{
+    box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+.youtube h2{
+    font-family:'Orbitron',sans-serif;
+    letter-spacing:3px;
+}
+
+.youtube p{
+    color:#777;
+    margin:12px 0 25px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+
+    padding:45px 20px;
+
+    border-top:1px solid #181818;
+
+    color:#555;
+
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+footer strong{
+    color:#fff;
+}
+
+/* HIDDEN MUSIC */
+audio{
+    display:none;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    nav .links{
+        display:none;
+    }
+
+    .nav-name{
+        font-size:11px;
+    }
+
+    .ug-logo{
+        width:150px;
+        height:150px;
+    }
+
+    .ug-text{
+        font-size:50px;
+    }
+
+    .hero h1{
+        font-size:35px;
+        letter-spacing:2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:70px 5%;
+    }
+
+    .profile-grid,
+    .game-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+
+    <div class="nav-logo">
+
+        <div class="mini-ug">
+            UG
+        </div>
+
+        <div class="nav-name">
+            UNIQUE GAMER
+        </div>
+
+    </div>
+
+    <div class="links">
+
+        <a href="#profile">PROFILE</a>
+        <a href="#gaming">GAMING</a>
+        <a href="#youtube">YOUTUBE</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="ug-logo">
+
+            <div class="ug-text">
+                <span>U</span><span>G</span>
+            </div>
+
+        </div>
+
+        <div class="tag">
+            EST. 2026 • INDIA
+        </div>
+
+        <h1>
+            UNIQUE <span>GAMER</span>
+        </h1>
+
+        <p>
+            Gaming • Entertainment • Digital World
+            <br>
+            Welcome to the official UG profile.
+        </p>
+
+        <a
+            class="btn"
+            href="https://youtube.com/@uniquegamer-official1?si=tyvjySsty2TZsjrW"
+            target="_blank"
+        >
+            ▶ VISIT YOUTUBE
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- PROFILE -->
+<section id="profile">
+
+    <h2 class="section-title">
+        PROFILE
+    </h2>
+
+    <div class="profile-grid">
+
+        <div class="card">
+            <div class="label">Identity</div>
+            <div class="value">UNIQUE GAMER</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Brand</div>
+            <div class="value">UG</div>
+        </div>
+
+        <div class="card">
+            <div class="label">From</div>
+            <div class="value">INDIA</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Date of Birth</div>
+            <div class="value">6 OCTOBER 2010</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Category</div>
+            <div class="value">GAMING</div>
+        </div>
+
+        <div class="card">
+            <div class="label">Gaming Journey</div>
+            <div class="value">SINCE 2026</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+<section>
+
+    <h2 class="section-title">
+        UG DATA
+    </h2>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-number">UG</div>
+            <div class="stat-name">IDENTITY</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">2026</div>
+            <div class="stat-name">GAMING START</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">IN</div>
+            <div class="stat-name">COUNTRY</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-name">GRIND</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GAMING -->
+<section id="gaming">
+
+    <h2 class="section-title">
+        GAMING ZONE
+    </h2>
+
+    <div class="game-grid">
+
+        <div class="game-card">
+
+            <div class="symbol">
+                01
+            </div>
+
+            <h3>
+                GAMEPLAY
+            </h3>
+
+            <p>
+                Gaming content & moments
+            </p>
+
+        </div>
+
+
+        <div class="game-card">
+
+            <div class="symbol">
+                02
+            </div>
+
+            <h3>
+                CHALLENGE
+            </h3>
+
+            <p>
+                Competitive gaming energy
+            </p>
+
+        </div>
+
+
+        <div class="game-card">
+
+            <div class="symbol">
+                03
+            </div>
+
+            <h3>
+                ENTERTAINMENT
+            </h3>
+
+            <p>
+                Fun beyond the game
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- YOUTUBE -->
+<section id="youtube">
+
+    <div class="youtube">
+
+        <div class="youtube-icon">
+            ▶
+        </div>
+
+        <h2>
+            UNIQUE GAMER
+        </h2>
+
+        <p>
+            Follow the official UG YouTube channel.
+        </p>
+
+        <a
+            class="btn"
+            href="https://youtube.com/@uniquegamer-official1?si=tyvjySsty2TZsjrW"
+            target="_blank"
+        >
+            OPEN CHANNEL
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <strong>UG</strong> — UNIQUE GAMER
+
+    <br><br>
+
+    GAMING SINCE 2026 • INDIA
+
+</footer>
+
+
+<!-- BACKGROUND MUSIC -->
+<audio
+    id="bgMusic"
+    autoplay
+    loop
+    playsinline
+    preload="auto"
+>
+    <source src="./bg-music.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+const music = document.getElementById("bgMusic");
+
+music.volume = 0.35;
+music.loop = true;
+
+let started = false;
+
+
+/* MAIN AUTOPLAY */
+async function startMusic(){
+
+    if(started) return;
+
+    try{
+
+        music.muted = false;
+        music.volume = 0.35;
+
+        await music.play();
+
+        started = true;
+
+        console.log("UG MUSIC: AUTOPLAY ON");
+
+    }catch(error){
+
+        console.log("Browser blocked autoplay");
+
+    }
+
+}
+
+
+/* IMMEDIATE ATTEMPT */
+startMusic();
+
+
+/* PAGE EVENTS */
+document.addEventListener(
+    "DOMContentLoaded",
+    startMusic
+);
+
+window.addEventListener(
+    "load",
+    startMusic
+);
+
+window.addEventListener(
+    "pageshow",
+    startMusic
+);
+
+window.addEventListener(
+    "focus",
+    startMusic
+);
+
+
+/* VISIBILITY */
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if(!document.hidden){
+
+            startMusic();
+
+        }
+
+    }
+);
+
+
+/* USER INTERACTION FALLBACK */
+[
+    "click",
+    "touchstart",
+    "touchend",
+    "pointerdown",
+    "keydown"
+].forEach(event => {
+
+    document.addEventListener(
+        event,
+        startMusic,
+        {
+            once:false,
+            passive:true
+        }
+    );
+
+});
+
+
+/* IF MUSIC GETS PAUSED */
+music.addEventListener(
+    "pause",
+    () => {
+
+        if(!document.hidden){
+
+            setTimeout(
+                startMusic,
+                50
+            );
+
+        }
+
+    }
+);
+
+
+/* RESTART AFTER END */
+music.addEventListener(
+    "ended",
+    () => {
+
+        music.currentTime = 0;
+
+        started = false;
+
+        startMusic();
+
+    }
+);
+
+</script>
+
+</body>
+  </html>
